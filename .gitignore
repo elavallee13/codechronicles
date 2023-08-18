@@ -1,0 +1,6 @@
+DB_NAME=mydbname
+DB_USER=mydbuser
+DB_PW=mydbpassword
+.env
+.DS_Store
+node_modules/

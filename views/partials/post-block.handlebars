@@ -1,0 +1,16 @@
+<!-- post-block.handlebars -->
+<div class="post-block">
+    <h2>{{ title }}</h2>
+    <p class="post-meta">
+        Posted by <a href="#">{{ author }}</a> on {{ date }}
+    </p>
+    <p class="post-content">{{ content }}</p>
+    <div class="post-actions">
+        <!-- Checks if the user is logged in and if they're the author of the post -->
+        {{#if isAuthor}}
+        <a href="/posts/edit/{{ id }}" class="btn btn-primary">Edit</a>
+        <a href="/posts/delete/{{ id }}" class="btn btn-danger">Delete</a>
+        {{/if}}
+    </div>
+    <hr>
+</div>
