@@ -22,10 +22,15 @@ const sess = {
   })
 };
 
+const sessionSecret = process.env. SESSION_SECRET
+
 app.use(session({
-  secret: process.env.SESSION_SECRET,
-  // other options...
+  secret: SESSION_SECRET,
+  resave: false,  // Doesnt save session if unmodified
+  saveUninitialized: false, 
+  cookie: { secure: true }  // Ensure the cookie is only used over HTTPS
 }));
+
 
 
 // Handlebars setup with partials directory specified
