@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const apiRoutes = require('./api/apiRoute');
+
 
 // Importing individual route files
 const userRoutes = require('./userRoutes');

@@ -1,7 +1,7 @@
 // controllers/index.js
 const router = require('express').Router();
 
-router.use('/api', require('./apiRoutes'));
+const apiRoutes = require('./api/apiRoute');
 router.use('/users', require('./userRoutes'));
 router.use('/posts', require('./postRoutes'));
 // ... add other routes here
