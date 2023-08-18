@@ -22,7 +22,11 @@ const sess = {
   })
 };
 
-app.use(session(sess));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  // other options...
+}));
+
 
 // Handlebars setup with partials directory specified
 const hbs = exphbs.create({
