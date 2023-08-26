@@ -7,8 +7,17 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const userRoutes = require('./controllers/api/userRoutes.js');
 
 const app = express();
+
+app.use('/users', userRoutes);
+
+app.listen(3001, () => {
+    console.log('Server is running on http://localhost:3001');
+});
+
+
 const PORT = process.env.PORT || 3001;
 
 // Session
@@ -25,7 +34,7 @@ const sess = {
 const sessionSecret = process.env. SESSION_SECRET
 
 app.use(session({
-  secret: SESSION_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,  // Doesnt save session if unmodified
   saveUninitialized: false, 
   cookie: { secure: true }  // Ensure the cookie is only used over HTTPS
